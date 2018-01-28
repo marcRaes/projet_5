@@ -1,0 +1,56 @@
+{% extends 'contentAccount.html.twig' %}
+
+{% block account %}
+
+    <div class="formsAccount">
+
+        <h1>Connexion :</h1>
+
+        {# formulaires de connexion #}
+        {{ form_start(form) }}
+
+            {# Messages d'erreur de connexion #}
+            {% for msg in app.session.flashBag.get('error') %}
+                <li>{{ msg }}</li>
+            {% endfor %}
+
+            {# Affichages des champs #}
+
+            {# Champ Pseudo #} {# Ce champ servira également pour la connexion par le Pseudo ou l'email #}
+            <p>
+                {# Affichage des erreurs pour ce champ précis #}
+                {{ form_errors(form.pseudo) }}
+
+                {# Affichage du label #}
+                {{ form_label(form.pseudo, 'Pseudo ou Adresse email : ') }}
+
+                {# Affichage de l'input #}
+                {{ form_widget(form.pseudo) }}
+            </p>
+
+            {# Champ Password #}
+            <p>
+                {# Affichage des erreurs #}
+                {{ form_errors(form.password) }}
+
+                {# Affichage du label #}
+                {{ form_label(form.password, 'Mot de passe : ') }}
+
+                {# Affichage de l'input #}
+                {{ form_widget(form.password) }}
+            </p>
+
+            <p>
+                {{ form_label(form.memory, 'Se souvenir de moi : ') }}
+
+                {{ form_widget(form.memory) }}
+            </p>
+
+            <p>
+                <button type="submit">Connexion</button>
+            </p>
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

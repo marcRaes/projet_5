@@ -1,0 +1,58 @@
+{% extends 'contentAccount.html.twig' %}
+
+{% block account %}
+
+    <div class="formsAccount">
+
+        <h1>Inscription :</h1>
+
+        {# formulaires d'inscription #}
+        {{ form_start(form) }}
+
+            {# Affichages des champs #}
+
+            {# Champ Pseudo #}
+            <p>
+                {# Affichage des erreurs pour ce champ précis #}
+                {{ form_errors(form.pseudo) }}
+
+                {# Affichage du label #}
+                {{ form_label(form.pseudo, 'Pseudo : ') }}
+
+                {# Affichage de l'input #}
+                {{ form_widget(form.pseudo) }}
+            </p>
+
+            {# Champ Email #}
+            <p>
+                {# Affichage des erreurs #}
+                {{ form_errors(form.email) }}
+
+                {# Affichage du label #}
+                {{ form_label(form.email, 'Adresse email : ') }}
+
+                {# Affichage de l'input #}
+                {{ form_widget(form.email) }}
+            </p>
+
+            {# Champ Password #}
+            <p>
+                {# Affichage des erreurs #}
+                {{ form_errors(form.password) }}
+
+                {# Affichage du label #}
+                {{ form_label(form.password, 'Mot de passe : ') }}
+
+                {# Affichage de l'input #}
+                {{ form_widget(form.password) }}
+            </p>
+
+            <p>
+                <button type="submit">Inscription</button>
+            </p>
+
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}
