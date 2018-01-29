@@ -23,7 +23,6 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      * @param Request $request
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
-     * @Method({"GET", "POST"})
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request) // Méthode page membre
@@ -43,14 +42,14 @@ class DefaultController extends Controller
         }
 
         // Vérifie la validité du message
-        if($formAddMessage->handleRequest($request)->isValid())
+        if($request->isMethod('POST') && $formAddMessage->handleRequest($request)->isValid())
         {
             // Sauvegarde le message
             $this->get('app.doctrine.manager')->messageManager()->saveMessage($formAddMessage);
 
             return $this->redirectToRoute('homepage');
         }
-        else if($formAddComment->handleRequest($request)->isValid()) // Un membre souhaite poster un commentaire
+        else if($request->isMethod('POST') && $formAddComment->handleRequest($request)->isValid()) // Un membre souhaite poster un commentaire
         {
             // Sauvegarde du commentaire
             $mailComment = $this->get('app.doctrine.manager')->commentManager()->saveComment($formAddComment, intval($request->get('idMessage')));
@@ -88,7 +87,6 @@ class DefaultController extends Controller
     /**
      * @Route("/register", name="register")
      * @param Request $request
-     * @Method({"GET", "POST"})
      * @return null|\Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function connectUserAction(Request $request) // Méthode du formulaire d'enregistrement
@@ -102,7 +100,7 @@ class DefaultController extends Controller
         $form = $this->createForm(RegistrationUserType::class, $user); // Crée le formulaire d'enregistrement
 
         // Soumission du formulaire
-        if ($form->handleRequest($request)->isValid()) {
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
 
             // Tout est OK on enregistre le membre
             $this->get('app.doctrine.manager')->userManager()->registerUser($user);

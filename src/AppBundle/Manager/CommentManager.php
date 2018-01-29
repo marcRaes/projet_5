@@ -6,17 +6,6 @@ use AppBundle\Form\CommentType;
 
 class CommentManager extends Manager
 {
-    public $formTab = [];
-
-    public function createFormComment($nbMessages)
-    {
-        for($i=1; $i <= $nbMessages; $i++)
-        {
-            $this->formTab[] = $this->formFactory->create(CommentType::class)->createView(); // Crée le champ d'ajout d'un commentaire
-        }
-        return $this->formTab;
-    }
-
     public function saveComment($form, $idMessage)
     {
         $message = $this->em->getRepository('AppBundle:Message')->find($idMessage);
