@@ -221,14 +221,7 @@ header a:hover {
 }
 
 .formsAccount form input[type=checkbox] {
-    display: inline-block;
-    width: 17px;
     margin-top: 30px;
-}
-
-.formsAccount form label > input[type=checkbox] {
-    display: inline-block;
-    vertical-align: bottom;
 }
 
 /* Boutons d'envoi des formulaires */

@@ -38,9 +38,8 @@ security:
 
             remember_me:
                 secret:   '%secret%'
-                name:   'sosHarcel'
-                remember_me_parameter:    'connect_user[memory]'
-                lifetime:   31536000
+                lifetime:   604800 #31536000
+                path:     /
 
             # activate different ways to authenticate
 
