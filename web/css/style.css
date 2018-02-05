@@ -376,7 +376,9 @@ header a:hover {
 
 .message p, .displayComment p {
     padding: 8px 10px;
-    word-break: break-all;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
 .message p:first-letter, .displayComment p:first-letter {

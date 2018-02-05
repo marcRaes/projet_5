@@ -2,8 +2,6 @@
 
 namespace AppBundle\Manager;
 
-use AppBundle\Form\CommentType;
-
 class CommentManager extends Manager
 {
     public function saveComment($form, $idMessage)

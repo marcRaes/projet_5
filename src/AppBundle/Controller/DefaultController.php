@@ -2,15 +2,12 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Comment;
 use AppBundle\Entity\Message;
 use AppBundle\Entity\User;
 use AppBundle\Form\CommentType;
 use AppBundle\Form\MessageType;
 use AppBundle\Form\LoginUserType;
 use AppBundle\Form\RegistrationUserType;
-use Psr\Log\LoggerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;

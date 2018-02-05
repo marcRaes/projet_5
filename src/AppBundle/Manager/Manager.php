@@ -3,9 +3,7 @@
 namespace AppBundle\Manager;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Monolog\Handler\MailHandler;
 use Symfony\Component\Form\FormFactory;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
