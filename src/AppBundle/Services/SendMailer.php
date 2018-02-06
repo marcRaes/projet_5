@@ -15,6 +15,7 @@ class SendMailer
         $this->twig = $twig_Environment;
     }
 
+    // Envoie du mail au nouveau membre
     public function sendRegisterMail(User $user)
     {
             $message = (new \Swift_Message())
@@ -30,6 +31,7 @@ class SendMailer
             $this->mailer->send($message);
     }
 
+    // signale un nouveau commentaire au membre du message
     public function sendCommentMail($comment)
     {
         if($comment !== null)

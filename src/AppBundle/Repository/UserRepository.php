@@ -15,6 +15,7 @@ class UserRepository extends EntityRepository implements UserLoaderInterface
      */
     public function loadUserByUsername($username)
     {
+        // Vérifie si le membre existe via son pseudo ou son email
         return $this->createQueryBuilder('u')
             ->where('u.pseudo = :pseudo OR u.email = :email')
             ->setParameter('pseudo', $username)

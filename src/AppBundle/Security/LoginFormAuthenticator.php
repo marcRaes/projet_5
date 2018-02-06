@@ -79,6 +79,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     {
         if($this->passwordEncoder->isPasswordValid($user, $credentials->getPassword()))
         {
+            // Message flash souhaitant la bienvenue au membre connecter
             $this->sessionBag->getFlashBag()->add('success', 'Ravis de vous revoir '.$user->getUsername());
             return true;
         }
